@@ -1,0 +1,259 @@
+
+@import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+/* general */
+body, html { 
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline;
+}
+
+ul li a {
+    color: #ffffff;
+    padding: 15px;
+}
+
+img {
+    max-width: 100%;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+/* desktop */
+body {
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-rows: auto 50px;
+    grid-template-columns: 12% auto;
+    grid-template-areas:
+        "sidebar main"
+        "footer footer";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #1C9090;
+    color: #ffffff;
+    padding: 1em;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 50px fit-content(30%) 40% auto;
+    grid-template-areas:
+        "header"
+        "hero"
+        "invention"
+        "features"
+}
+
+header {
+    background-color: #41C7C7;
+    display: grid;
+    grid-area: header;
+    grid-template-columns: [logo-start] fit-content(20%) [nav-start] auto [nav-end];
+}
+
+.logo {
+    padding: 15px;
+    background-color: #F3F1C7;
+    color: #298383;
+    font-weight: bold;
+}
+
+.hero {
+    padding: 2em;
+    background-color: #36AdAd;
+    border-top: 5px solid #2EA0A0;
+    grid-area: hero;
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: repeat(2, auto);
+}
+
+.content h1 {
+    text-transform: uppercase;
+    color: #FFFBc5;
+}
+
+.content p {
+    color: #ffffff;
+}
+
+.thumbnail {
+    border-radius: 50%;
+    width: 200px;
+    height:200px;
+}
+
+.features {
+    margin: 0;
+    padding: 0;
+    grid-area: features;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: start;
+}
+
+.features i {
+    font-size: 2em;
+}
+
+.features li {
+    background-color: lightgray;
+    padding: 1em;
+}
+
+.features li:nth-child(1) {
+    background-color:#E6E6E6;
+}
+
+.features li:nth-child(2) {
+    background-color:#D3D3D3;
+    align-self: end;
+}
+
+.features li:nth-child(3) {
+    background-color:#CACACA;
+}
+
+.features li:nth-child(4) {
+    background-color:#E6E6E6;
+    align-self: end;
+}
+
+.features li:nth-child(5) {
+    background-color:#D3D3D3;
+}
+
+.features i p {
+    color: #4c4c4c;
+}
+
+.info {
+    padding: 2em;
+    background-color: #f2f2f2;
+    grid-area: invention;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+}
+
+.thumbnail--svg {
+    width: 200px;
+}
+
+.footer {
+    grid-area: footer;
+    align-self: center;
+    background-color: #41C7C7;
+}
+
+.footer p {
+    color: #fff;
+    text-align:center;
+}
+
+/* tablet */
+@media screen and (max-width: 60em) {
+    .sidebar {
+        display: none;
+    }
+
+    body {        
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "main"
+            "footer";
+    }
+
+    .main {
+        grid-template-areas: 
+            "header"
+            "hero"
+            "features"
+            "invention"
+    }
+
+    .features {
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .features li:nth-child(5) {
+        grid-column: 1 / span 2;
+    }
+
+    .features li:nth-child(2) {
+        align-self: start;
+    }
+
+    .features li:nth-child(4) {
+        align-self: start;
+    }
+   
+}
+
+/* mobile */
+@media screen and (max-width: 40em) {
+    .main {
+        grid-template-rows: auto fit-content(30%) auto auto;
+    }
+
+    header {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    nav ul {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        width: calc(25% - 35px);
+        display: inline-block;
+        font-size: 0.9em;
+    }
+
+    .hero, .info {
+        grid-template-columns: auto;
+        text-align: center;
+    }
+
+    h1, h2 {
+        font-size: 1.2em;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content p, .content2 p {
+        font-size: 0.9em;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .features li:nth-child(1),  .features li:nth-child(2) {
+        grid-column: 1 / span 2;
+    }
+}
